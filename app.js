@@ -28,14 +28,11 @@ app.use(bodyParser.json());
 app.get('/',function(req,res){
   var content = {};
   content.title = "GET Request Received";
-
+  console.log(pool);
   var params = [];
   for (var p in req.query){
     params.push({'name':p,'value':req.query[p]})
   }
-  console.log("GET");
-  console.log(req);
-  console.log(params);
   content.dataList = params;
   res.render('home', content);
 });
