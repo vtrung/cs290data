@@ -1,0 +1,160 @@
+
+<h1>How to: Facebook API</h1>
+<div>
+  <h2>Getting Started</h2>
+  <p>Facebook require that users of their API to be sign up for their developer program</p>
+  <a href='https://developers.facebook.com/'>https://developers.facebook.com</a>
+  <p>After signing up with Facebook developer program, they will provide an app id for you to use</p>
+  <p>You must add the Facebook api reference to your code and encase it in a script tag. See below. </p>
+  <p>This snippet of code should be added to the bottom of the body tag where [your-app-id] should be replace with
+    your Facebook developer id</p>
+  <pre>
+    <xmp>
+      <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=[your-app-id]";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      </script>
+    </xmp>
+  </pre>
+  <p>
+    This code bring in the Facebook javascript library. Once this code is called,
+    you will be able to access some of Facebook's functionalities such as
+    Likes, Shares, or Comments.
+
+  </p>
+  <br />
+  <hr />
+</div>
+
+<div>
+  <br />
+  <h2>Sharing</h2>
+  <p>
+    The Facebook API allows you to access the sharing funtionality which will
+    let your users share content on their facebook pages through your site.  This
+    provides a user convenient way to share the content that your page specifies without having to send your users to facebook.
+  </p>
+  <p>
+    The following code is a div tag needed to display the facebook share button.
+  </p>
+  <xmp><div class="fb-share-button" data-href="[URL-address]" data-layout="button_count"></div></xmp>
+  <p>
+    By replacing the [URL-address] with the url of the content that you want
+    to share, Facebook will automatically bring up information such as how much
+    people have shared that same link before.
+  </p>
+  <p>
+    Examples:
+  </p>
+  <p>
+    Sharing button for Facebook developers page
+  </p>
+  <xmp><div class="fb-share-button" data-href="https://developers.facebook.com/" data-layout="button_count"></div></xmp>
+  <div class="fb-share-button" data-href="https://developers.facebook.com/" data-layout="button_count"></div>
+  <p>
+    Sharing button for Google Homepage
+  </p>
+  <xmp><div class="fb-share-button" data-href="https://www.google.com" data-layout="button_count"></div></xmp>
+  <div class="fb-share-button" data-href="https://www.google.com" data-layout="button_count"></div>
+  <p>
+    Sharing button for Oregon State University homepage
+  </p>
+  <xmp><div class="fb-share-button" data-href="https://oregonstate.edu/" data-layout="button_count"></div></xmp>
+  <div class="fb-share-button" data-href="https://oregonstate.edu/" data-layout="button_count"></div>
+
+  <p> Documentation: </p>
+  <a href='https://developers.facebook.com/docs/plugins/share-button'>https://developers.facebook.com/docs/plugins/share-button</a>
+  <br />
+  <br />
+  <hr />
+</div>
+
+<div>
+  <br />
+  <h2>Likes </h2>
+  <p>
+    Facebook API allows you in to integrate Facebook 'Likes' on your webpage.
+    You will have to define the URL of the content user can like on your page.
+    To set it to like your own page, just plug in the current URL in the
+    data-href section of the fb-like div.  You are not limited to current
+    webpage when setting content that are likable.
+  </p>
+  <p>
+    The following code is a div tag needed to display the Facebook like button.
+  </p>
+  <xmp>
+    <div class="fb-like" data-href="[URL-address]" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+  </xmp>
+  <p>
+    By replacing the [URL-address] with the url of the content that you want
+    to allow for likes, Facebook will automatically bring up information such as how much
+    people have liked that same link before.
+  </p>
+  <p>Examples: </p>
+  <p> Add a like to Facebook developer page </p>
+  <xmp>
+    <div class="fb-like" data-href="https://developers.facebook.com/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+  </xmp>
+  <div class="fb-like" data-href="https://developers.facebook.com/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+  <p>
+    Add a like to Google
+  </p>
+  <xmp>
+    <div class="fb-like" data-href="https://www.google.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+  </xmp>
+  <div class="fb-like" data-href="https://www.google.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+  <p>
+    Add a like to OSU
+  </p>
+  <xmp>
+    <div class="fb-like" data-href="https://oregonstate.edu/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+  </xmp>
+  <div class="fb-like" data-href="https://oregonstate.edu/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+  <p> Documentation: </p>
+  <a href='https://developers.facebook.com/docs/plugins/like-button'>https://developers.facebook.com/docs/plugins/like-button</a>
+
+  <br />
+  <br />
+  <hr />
+</div>
+
+<div>
+  <h2>Comments</h2>
+  <p>
+    This API allows your to grab the comments that others have made to a shared
+    content from Facebook as well as allow your users to make their own comments
+    to the selected post.
+
+  </p>
+  <p>
+    The following code is a div tag needed to display the Facebook comments.
+  </p>
+  <xmp>
+    <div class="fb-comments" data-href="[URL-address]" data-numposts="5"></div>
+  </xmp>
+  <p> Example: </p>
+  <xmp>
+    <div class="fb-comments" data-href="https://facebook.com/" data-numposts="5"></div>
+  </xmp>
+  <div class="fb-comments" data-href="https://facebook.com/" data-numposts="5"></div>
+  <p> Documentation: </p>
+  <a href='https://developers.facebook.com/docs/plugins/comments'>https://developers.facebook.com/docs/plugins/comments</a>
+  <br />
+  <br />
+</div>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=770522426387784";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
