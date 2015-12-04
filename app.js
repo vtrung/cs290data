@@ -44,7 +44,7 @@ app.get('/app',function(req,res){
 // ------ GET TABLES ------ //
 app.get('/reset-table',function(req,res,next){
   var context = {};
-  mysql.pool.query("DROP TABLE IF EXISTS todo", function(err){
+    pool.query("DROP TABLE IF EXISTS todo", function(err){
     var createString = "CREATE TABLE todo(" +
     "id INT PRIMARY KEY AUTO_INCREMENT," +
     "name VARCHAR(255) NOT NULL," +
@@ -60,7 +60,7 @@ app.get('/reset-table',function(req,res,next){
 
 app.get('/insert',function(req,res,next){
   var context = {};
-  mysql.pool.query("INSERT INTO todo (`name`) VALUES (?)", [req.query.c], function(err, result){
+    pool.query("INSERT INTO todo (`name`) VALUES (?)", [req.query.c], function(err, result){
     if(err){
       next(err);
       return;
@@ -72,7 +72,7 @@ app.get('/insert',function(req,res,next){
 
 app.get('/table',function(req,res,next){
   var context = {};
-  mysql.pool.query('SELECT * FROM todo', function(err, rows, fields){
+  pool.query('SELECT * FROM todo', function(err, rows, fields){
     if(err){
       next(err);
       return;
@@ -84,7 +84,7 @@ app.get('/table',function(req,res,next){
 
 app.get('/simple-update',function(req,res,next){
   var context = {};
-  mysql.pool.query("UPDATE todo SET name=?, done=?, due=? WHERE id=? ",
+  pool.query("UPDATE todo SET name=?, done=?, due=? WHERE id=? ",
     [req.query.name, req.query.done, req.query.due, req.query.id],
     function(err, result){
     if(err){
@@ -98,7 +98,7 @@ app.get('/simple-update',function(req,res,next){
 
 app.get('/safe-update',function(req,res,next){
   var context = {};
-  mysql.pool.query("SELECT * FROM todo WHERE id=?", [req.query.id], function(err, result){
+  pool.query("SELECT * FROM todo WHERE id=?", [req.query.id], function(err, result){
     if(err){
       next(err);
       return;
