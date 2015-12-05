@@ -2,14 +2,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var pool = mysql.createPool({
-  connectionLimit : 10,
-  host            : 'localhost:3306',
-  user            : 'student',
-  password        : 'default',
-  database        : 'student'
+  host  : 'localhost',
+  user  : 'student',
+  password: 'default',
+  database: 'student'
 });
-
-module.exports.pool = pool;
 
 var app = express();
 
@@ -44,29 +41,28 @@ app.get('/app',function(req,res){
 // ------ GET TABLES ------ //
 app.get('/reset-table',function(req,res,next){
   var context = {};
-    pool.query("DROP TABLE IF EXISTS todo", function(err){
+  pool.query("DROP TABLE IF EXISTS todo", function(err){
     var createString = "CREATE TABLE todo(" +
     "id INT PRIMARY KEY AUTO_INCREMENT," +
     "name VARCHAR(255) NOT NULL," +
     "done BOOLEAN," +
     "due DATE)";
-    mysql.pool.query(createString, function(err){
+    pool.query(createString, function(err){
       context.results = "Table reset";
-      res.render('table',context);
+      res.render('home',context);
     })
   });
-  res.render('app');
 });
 
 app.get('/insert',function(req,res,next){
   var context = {};
-    pool.query("INSERT INTO todo (`name`) VALUES (?)", [req.query.c], function(err, result){
+  pool.query("INSERT INTO todo (`name`) VALUES (?)", [req.query.c], function(err, result){
     if(err){
       next(err);
       return;
     }
     context.results = "Inserted id " + result.insertId;
-    res.render('table',context);
+    res.render('home',context);
   });
 });
 
