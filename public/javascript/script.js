@@ -35,6 +35,7 @@ function dataLoad(){
 function datePrint(results){
   var table = document.getElementById('workouts');
   for(a in results){
+    console.log(a);
     var item = document.createElement('tr');
     var name = document.createElement('td');
     name.textContent = a.name;
