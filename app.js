@@ -75,7 +75,7 @@ app.get('/delete',function(req,res,next){
       next(err);
       return;
     }
-    context.results = "Deleted " + results.changedRows + " rows";
+    context.results = "Deleted " + result.changedRows + " rows";
     res.render('home',context);
   });
 });
@@ -92,7 +92,7 @@ app.get('/table',function(req,res,next){
   });
 });
 
-app.get('/table',function(req,res,next){
+app.get('/gettable',function(req,res,next){
   var context = {};
   pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
@@ -100,7 +100,7 @@ app.get('/table',function(req,res,next){
       return;
     }
     context.results = JSON.stringify(rows);
-    res.sent(content.results);
+    res.send(content.results);
   });
 });
 
