@@ -26,7 +26,7 @@ function dataLoad(){
   req.addEventListener('load', function(){
     if(req.status >= 200 && req.status < 400){
       console.log(req.responseText);
-      datePrint(eq.responseText);
+      datePrint(req.responseText);
     }
   });
   req.send(null);
