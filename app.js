@@ -58,7 +58,7 @@ app.get('/reset-table',function(req,res,next){
 
 app.get('/insert',function(req,res,next){
   var context = {};
-  pool.query("INSERT INTO workouts (`name`) VALUES (?)", [req.query.c], function(err, result){
+  pool.query("INSERT INTO workouts (`name`) VALUES (?)", [req.query.name], function(err, result){
     if(err){
       next(err);
       return;
@@ -70,7 +70,7 @@ app.get('/insert',function(req,res,next){
 
 app.get('/delete',function(req,res,next){
   var context = {};
-  pool.query("DELETE FROM workouts WHERE id=(?)", [req.query.c], function(err, result){
+  pool.query("DELETE FROM workouts WHERE id=(?)", [req.query.id], function(err, result){
     if(err){
       next(err);
       return;
