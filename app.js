@@ -92,6 +92,18 @@ app.get('/table',function(req,res,next){
   });
 });
 
+app.get('/table',function(req,res,next){
+  var context = {};
+  pool.query('SELECT * FROM workouts', function(err, rows, fields){
+    if(err){
+      next(err);
+      return;
+    }
+    context.results = JSON.stringify(rows);
+    res.sent(content.results);
+  });
+});
+
 app.get('/simple-update',function(req,res,next){
   var context = {};
   pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",

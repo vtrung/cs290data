@@ -14,7 +14,7 @@ function dataLoad(){
   req.open("GET", "/getTable", false);
   req.addEventListener('load', function(){
     if(req.status >= 200 && req.status < 400){
-
+      console.log(req.responseText);
     }
   });
   req.sent(null);
