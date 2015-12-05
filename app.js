@@ -75,7 +75,7 @@ app.get('/delete',function(req,res,next){
       next(err);
       return;
     }
-    context.results = "Deleted " + result.changedRows + " rows";
+    context.results = "Deleted " + results.changedRows + " rows";
     res.render('home',context);
   });
 });
