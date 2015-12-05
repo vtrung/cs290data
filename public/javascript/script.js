@@ -36,11 +36,16 @@ function datePrint(results){
   var table = document.getElementById('workouts');
   for(a in results){
     var item = document.createElement('tr');
-    var name = document.createElement('td').textContent(a.name);
-    var reps = document.createElement('td').textContent(a.reps);
-    var weight = document.createElement('td').textContent(a.weight);
-    var date = document.createElement('td').textContent(a.date);
-    var lbs = document.createElement('td').textContent(a.lbs);
+    var name = document.createElement('td');
+    name.textContent = a.name;
+    var reps = document.createElement('td');
+    reps.textContent = a.reps;
+    var weight = document.createElement('td');
+    weight.textContent = a.weight;
+    var date = document.createElement('td');
+    date.textContent = a.date;
+    var lbs = document.createElement('td');
+    lbs.textContent = a.lbs;
     item.appendChild(name);
     item.appendChild(reps);
     item.appendChild(weight);
