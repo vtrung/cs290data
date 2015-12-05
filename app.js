@@ -92,7 +92,7 @@ app.get('/table',function(req,res,next){
   });
 });
 
-app.get('/gettable',function(req,res,next){
+app.get('/getTable',function(req,res,next){
   var context = {};
   pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
@@ -100,8 +100,9 @@ app.get('/gettable',function(req,res,next){
       return;
     }
     context.results = JSON.stringify(rows);
-    res.send(content.results);
+    res.send(context.results);
   });
+  res.send("failed");
 });
 
 app.get('/simple-update',function(req,res,next){
