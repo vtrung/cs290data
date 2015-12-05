@@ -28,7 +28,7 @@ function dataLoad(){
       console.log(req.responseText);
     }
   });
-  req.sent(null);
+  req.send(null);
 }
 
 function datePrint(results){
