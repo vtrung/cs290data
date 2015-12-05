@@ -34,7 +34,7 @@ function dataLoad(){
 
 function datePrint(results){
   var table = document.getElementById('workouts');
-  results.forEach(function(a){
+  for(a in results){
     var item = document.createElement('tr');
     var name = document.createElement('td').textContent(a.name);
     var reps = document.createElement('td').textContent(a.reps);
@@ -47,5 +47,5 @@ function datePrint(results){
     item.appendChild(date);
     item.appendChild(lbs);
     list.appendChild(table);
-  });
+  }
 }
