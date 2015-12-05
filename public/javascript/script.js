@@ -51,6 +51,6 @@ function datePrint(results){
     item.appendChild(weight);
     item.appendChild(date);
     item.appendChild(lbs);
-    list.appendChild(table);
+    table.appendChild(table);
   }
 }
