@@ -1,6 +1,6 @@
 function dataInsert(name){
   var req = new XMLHttpRequest();
-  req.open("GET", "/insert?name=" + name, false);
+  req.open("GET", "/insert?name=" + name, true);
   req.addEventListener('load',function(){
     if(req.status >= 200 && req.status < 400){
       console.log(req.responseText);
@@ -11,7 +11,7 @@ function dataInsert(name){
 
 function dataLoad(){
   var req = new XMLHttpRequest();
-  req.open("GET", "/getTable", false);
+  req.open("GET", "/getTable", true);
   req.addEventListener('load', function(){
     if(req.status >= 200 && req.status < 400){
       console.log(req.responseText);
