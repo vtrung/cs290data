@@ -102,7 +102,6 @@ app.get('/getTable',function(req,res,next){
     context.results = JSON.stringify(rows);
     res.send(context.results);
   });
-  res.send("failed");
 });
 
 app.get('/simple-update',function(req,res,next){
