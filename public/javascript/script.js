@@ -34,10 +34,12 @@ function dataLoad(){
 
 function datePrint(results){
   var table = document.getElementById('workouts');
-
-  for(i in results){
+  console.log(results);
+  var result = JSON.parse(results);
+  console.log(result);
+  for(i in result){
     console.log(a);
-    var a = results[i];
+    var a = result[i];
     var item = document.createElement('tr');
     var name = document.createElement('td');
     name.textContent = a.name;
