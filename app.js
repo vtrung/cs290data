@@ -58,26 +58,32 @@ app.get('/reset-table',function(req,res,next){
 
 app.get('/insert',function(req,res,next){
   var context = {};
-  pool.query("INSERT INTO workouts (`name`) VALUES (?)", [req.query.name], function(err, result){
-    if(err){
-      next(err);
-      return;
-    }
-    context.results = "Inserted id " + result.insertId;
-    res.render('home',context);
-  });
+  if(!req.query.name){
+    pool.query("INSERT INTO workouts (`name`) VALUES (?)", [req.query.name], function(err, result){
+      if(err){
+        next(err);
+        return;
+      }
+      context.results = "Inserted id " + result.insertId;
+      res.render('home',context);
+    });
+  }
+  res.render('app');
 });
 
 app.get('/delete',function(req,res,next){
   var context = {};
-  pool.query("DELETE FROM workouts WHERE id=(?)", [req.query.id], function(err, result){
-    if(err){
-      next(err);
-      return;
-    }
-    context.results = "Deleted " + result.changedRows + " rows";
-    res.render('home',context);
-  });
+  if(!req.query.id){}
+    pool.query("DELETE FROM workouts WHERE id=(?)", [req.query.id], function(err, result){
+      if(err){
+        next(err);
+        return;
+      }
+      context.results = "Deleted " + result.changedRows + " rows";
+      res.render('home',context);
+    });
+  }
+  res.render('app');
 });
 
 app.get('/table',function(req,res,next){

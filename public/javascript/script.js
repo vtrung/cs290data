@@ -34,9 +34,12 @@ function dataLoad(){
 
 function datePrint(results){
   var table = document.getElementById('workouts');
-  console.log(results);
+  while(table.rows.length > 0) {
+    table.deleteRow(0);
+  }
+
   var result = JSON.parse(results);
-  console.log(result);
+
   for(i in result){
     console.log(a);
     var a = result[i];
