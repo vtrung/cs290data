@@ -18,9 +18,9 @@ app.set('port', 3001);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 // -- GET -- //
-
 
 app.get('/',function(req,res){
   var content = {};
