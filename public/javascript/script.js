@@ -51,12 +51,14 @@ function dataUpdate(id, name, reps, weight, date, lbs){
 
 
 var deleteButton = function(){
-  var id = this.id;
+  var res = this.id;
+  var id = str.split("delete-")[1];
   console.log("delete:"+id);
 }
 
 var updateButton = function(){
-  var id = this.id;
+  var res = this.id;
+  var id = str.split("update-")[1];
   console.log("update:"+id);
 }
 
