@@ -1,5 +1,5 @@
 function dataInsert(name){
-  console.log("dataInsert");
+  //console.log("dataInsert");
   var req = new XMLHttpRequest();
   req.open("GET", "/insert?name=" + name, true);
   req.addEventListener('load',function(){
@@ -11,7 +11,7 @@ function dataInsert(name){
 }
 
 function dataDelete(id){
-  console.log("dataDelete");
+  //console.log("dataDelete");
   var req = new XMLHttpRequest();
   req.open("GET", "/delete?id=" + id, true);
   req.addEventListener('load',function(){
@@ -23,7 +23,7 @@ function dataDelete(id){
 }
 
 function dataUpdate(id, name, reps, weight, date, lbs){
-  console.log("dataUpdate " + id);
+  //console.log("dataUpdate " + id);
   //pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
   if(id){
     var req = new XMLHttpRequest();
@@ -53,7 +53,7 @@ function dataUpdate(id, name, reps, weight, date, lbs){
 var deleteButton = function(){
   var res = this.id;
   var id = res.split("delete-")[1];
-  console.log("delete:"+id);
+  //console.log("delete:"+id);
   dataDelete(id);
 }
 
@@ -61,7 +61,7 @@ var updateButton = function(){
   document.getElementById('update-form').style.display = "block";
   var res = this.id;
   var id = res.split("update-")[1];
-  console.log("update:"+id);
+  //console.log("update:"+id);
   var row = document.getElementById('row'+id);
   var rdata = row.getElementsByTagName('td');
   document.getElementById('upid').value = id;
@@ -73,7 +73,7 @@ var updateButton = function(){
 }
 
 function dataLoad(){
-  console.log("dataLoad");
+  //console.log("dataLoad");
   var req = new XMLHttpRequest();
   req.open("GET", "/getTable", true);
   req.addEventListener('load', function(){
@@ -86,7 +86,7 @@ function dataLoad(){
 }
 
 function datePrint(results){
-  console.log("dataPrint");
+  //console.log("dataPrint");
   var table = document.getElementById('workouts');
   //clear rows
   while(table.rows.length > 0) {
@@ -114,7 +114,7 @@ function datePrint(results){
   var result = JSON.parse(results);
 
   for(i in result){
-    console.log(a);
+    //console.log(a);
     var a = result[i];
     var item = document.createElement('tr');
     item.id = 'row'+a.id;
@@ -127,10 +127,10 @@ function datePrint(results){
     var date = document.createElement('td');
     date.textContent = a.date;
     var lbs = document.createElement('td');
-    if(lbs)
-      lbs.textContent = "kg";
-    else {
+    if(a.lbs)
       lbs.textContent = "lbs";
+    else {
+      lbs.textContent = "kg";
     }
     item.appendChild(name);
     item.appendChild(reps);
