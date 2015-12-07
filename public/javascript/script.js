@@ -1,4 +1,5 @@
 function dataInsert(name){
+  console.log("dataInsert");
   var req = new XMLHttpRequest();
   req.open("GET", "/insert?name=" + name, true);
   req.addEventListener('load',function(){
@@ -10,6 +11,7 @@ function dataInsert(name){
 }
 
 function dataDelete(id){
+  console.log("dataDelete");
   var req = new XMLHttpRequest();
   req.open("GET", "/delete?id=" + id, true);
   req.addEventListener('load',function(){
@@ -21,6 +23,7 @@ function dataDelete(id){
 }
 
 function dataUpdate(id, name, reps, weight, date, lbs){
+  console.log("dataUpdate");
   //pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
   if(id){
     var req = new XMLHttpRequest();
@@ -47,6 +50,7 @@ function dataUpdate(id, name, reps, weight, date, lbs){
 }
 
 function dataLoad(){
+  console.log("dataLoad");
   var req = new XMLHttpRequest();
   req.open("GET", "/getTable", true);
   req.addEventListener('load', function(){
@@ -59,6 +63,7 @@ function dataLoad(){
 }
 
 function datePrint(results){
+  console.log("dataPrint");
   var table = document.getElementById('workouts');
   //clear rows
   while(table.rows.length > 0) {
