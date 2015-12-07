@@ -61,7 +61,13 @@ var updateButton = function(){
   var res = this.id;
   var id = res.split("update-")[1];
   console.log("update:"+id);
-  dataUpdate(id = id);
+  var row = document.getElementById('row'+id);
+  var rdata = row.getElementsByTagName('th');
+  document.getElementById('upname').value = rdata[0].textContent;
+  document.getElementById('upreps').value = rdata[1].textContent;
+  document.getElementById('upweight').value = rdata[2].textContent;
+  document.getElementById('uppdate').value = rdata[3].textContent;
+  document.getElementById('uplbs').value = rdata[4].textContent;
 }
 
 function dataLoad(){

@@ -2,10 +2,22 @@
 <p>
   {{results}}
 </p>
-<div>
+<div class='table-form'>
   <p>Add New Workout</p>
   <form action="/insert" method="get">
     Workout Name: <input name='name' type='text'><br />
+    <input type='submit'>
+  </form>
+</div>
+<div id='update-form' class='table-form' style='display:none'>
+  <p>Update Workout</p>
+  <form action="/update" method="get">
+    <input style='display:none' id='upid' name='id'>
+    Name: <input id='upname' name='name' type='text'><br />
+    Reps: <input id='upreps' name='reps' type='text'><br />
+    Weight: <input id='upweight' name='weight' type='text'><br />
+    Date: <input id='uppdate' name='date' type='text'><br />
+    lbs: <input id='uplbs' name='lbs' type='text'><br />
     <input type='submit'>
   </form>
 </div>
