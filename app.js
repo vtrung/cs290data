@@ -83,7 +83,6 @@ app.get('/delete',function(req,res,next){
       res.render('home',context);
     });
   }
-  res.render('app');
 });
 
 app.get('/table',function(req,res,next){
