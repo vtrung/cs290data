@@ -25,28 +25,28 @@ function dataDelete(id){
 function dataUpdate(id, name, reps, weight, date, lbs){
   console.log("dataUpdate");
   //pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
-  if(id){
-    var req = new XMLHttpRequest();
-    var get = "/delete?id=" + id;
-    if(name)
-      get += "&name=" + name;
-    if(reps)
-      get += "&reps=" + reps;
-    if(workout)
-      get += "&weight=" + weight;
-    if(date)
-      get += "&date=" + date;
-    if(lbs)
-      get += "&lbs=" + lbs;
-
-    req.open("GET", "/delete?id=" + id, true);
-    req.addEventListener('load',function(){
-      if(req.status >= 200 && req.status < 400){
-        dataLoad();
-      }
-    });
-    req.send(null);
-  }
+  // if(id){
+  //   var req = new XMLHttpRequest();
+  //   var get = "/delete?id=" + id;
+  //   if(name)
+  //     get += "&name=" + name;
+  //   if(reps)
+  //     get += "&reps=" + reps;
+  //   if(workout)
+  //     get += "&weight=" + weight;
+  //   if(date)
+  //     get += "&date=" + date;
+  //   if(lbs)
+  //     get += "&lbs=" + lbs;
+  //
+  //   req.open("GET", "/delete?id=" + id, true);
+  //   req.addEventListener('load',function(){
+  //     if(req.status >= 200 && req.status < 400){
+  //       dataLoad();
+  //     }
+  //   });
+  //   req.send(null);
+  // }
 }
 
 function dataLoad(){
@@ -114,8 +114,8 @@ function datePrint(results){
     var updateb = document.createElement('button');
     var bdata = document.createElement('td');
     updateb.textContent = 'update';
-    //updateb.addEventListener('click', dataDelete(a.id), false);
-    updateb['onclick'] = 'dataDelete('+ a.id +')'
+    updateb.attachEvent('onclick', dataDelete(a.id));
+    //updateb['onclick'] = 'dataDelete('+ a.id +')'
     deleteb.textContent = 'delete';
     deleteb['onclick'] = 'dataUpdate('+ a.id +')'
     bdata.appendChild(updateb);
