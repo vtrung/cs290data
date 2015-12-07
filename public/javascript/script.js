@@ -25,18 +25,18 @@ function dataDelete(id){
 function dataUpdate(id, name, reps, weight, date, lbs){
   console.log("dataUpdate " + id);
   pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
-  if(id){
+  if(id != null){
     var req = new XMLHttpRequest();
     var url = "/safe-update?id=" + id;
-    if(name)
+    if(name != null)
       url += "&name=" + name;
-    if(reps)
+    if(reps != null)
       url += "&reps=" + reps;
-    if(workout)
+    if(workout != null)
       url += "&weight=" + weight;
-    if(date)
+    if(date != null)
       url += "&date=" + date;
-    if(lbs)
+    if(lbs != null)
       url += "&lbs=" + lbs;
 
     req.open("GET", url, true);
