@@ -32,7 +32,7 @@ function dataUpdate(id, name, reps, weight, date, lbs){
       url += "&name=" + name;
     if(reps)
       url += "&reps=" + reps;
-    if(workout)
+    if(weight)
       url += "&weight=" + weight;
     if(date)
       url += "&date=" + date;
@@ -115,14 +115,26 @@ function datePrint(results){
     var updateb = document.createElement('button');
     var bdata = document.createElement('td');
     updateb.textContent = 'update';
-    updateb.onclick=function(){dataUpdate(id=a.id)};
+    updateb.id = 'update-' + a.id;
+    updateb.onclick=function(){updateButton()};
     //updateb['onclick'] = 'dataDelete('+ a.id +')'
     deleteb.textContent = 'delete';
-    deleteb.onclick=function(){dataDelete(a.id)};
+    deleteb.id = 'delete-' + a.id;
+    deleteb.onclick=function(){deleteButton()};
     bdata.appendChild(updateb);
     bdata.appendChild(deleteb);
     item.appendChild(bdata);
 
     table.appendChild(item);
   }
+}
+
+function deleteButton(){
+  var id = this.id;
+  console.log("delete:"+id);
+}
+
+function updateButton(){
+  var id = this.id;
+  console.log("update:"+id);
 }
