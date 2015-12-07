@@ -49,6 +49,17 @@ function dataUpdate(id, name, reps, weight, date, lbs){
   }
 }
 
+
+var deleteButton = function(){
+  var id = this.id;
+  console.log("delete:"+id);
+}
+
+var updateButton = function(){
+  var id = this.id;
+  console.log("update:"+id);
+}
+
 function dataLoad(){
   console.log("dataLoad");
   var req = new XMLHttpRequest();
@@ -127,14 +138,4 @@ function datePrint(results){
 
     table.appendChild(item);
   }
-}
-
-function deleteButton(){
-  var id = this.id;
-  console.log("delete:"+id);
-}
-
-function updateButton(){
-  var id = this.id;
-  console.log("update:"+id);
 }
