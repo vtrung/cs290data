@@ -76,6 +76,11 @@ function datePrint(results){
   date.textContent = "date";
   var lbs = document.createElement('th');
   lbs.textContent = "th";
+  item.appendChild(name);
+  item.appendChild(reps);
+  item.appendChild(weight);
+  item.appendChild(date);
+  item.appendChild(lbs);
   table.appendChild(item);
 
   var result = JSON.parse(results);
