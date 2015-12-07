@@ -114,9 +114,10 @@ function datePrint(results){
     var updateb = document.createElement('button');
     var bdata = document.createElement('td');
     updateb.textContent = 'update';
-    updateb.addEventListener('click', dataDelete(a.id), false);
+    //updateb.addEventListener('click', dataDelete(a.id), false);
+    updateb['onclick'] = 'dataDelete('+ a.id +')'
     deleteb.textContent = 'delete';
-    deleteb.addEventListener('click', dataUpdate(a.id), false);
+    deleteb['onclick'] = 'dataUpdate('+ a.id +')'
     bdata.appendChild(updateb);
     bdata.appendChild(deleteb);
     item.appendChild(bdata);
