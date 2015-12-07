@@ -27,19 +27,19 @@ function dataUpdate(id, name, reps, weight, date, lbs){
   pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
   if(id){
     var req = new XMLHttpRequest();
-    var get = "/safe-update?id=" + id;
+    var url = "/safe-update?id=" + id;
     if(name)
-      get += "&name=" + name;
+      url += "&name=" + name;
     if(reps)
-      get += "&reps=" + reps;
+      url += "&reps=" + reps;
     if(workout)
-      get += "&weight=" + weight;
+      url += "&weight=" + weight;
     if(date)
-      get += "&date=" + date;
+      url += "&date=" + date;
     if(lbs)
-      get += "&lbs=" + lbs;
+      url += "&lbs=" + lbs;
 
-    req.open("GET", get, true);
+    req.open("GET", url, true);
     req.addEventListener('load',function(){
       if(req.status >= 200 && req.status < 400){
         dataLoad();
