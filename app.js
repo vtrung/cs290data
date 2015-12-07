@@ -132,7 +132,7 @@ app.get('/safe-update',function(req,res,next){
           req.query.reps || curVals.reps,
           req.query.weight || curVals.weight,
           req.query.date || curVals.date,
-          req.query.lbs || curVals.lbs,
+          req.query.pounds || curVals.lbs,
           req.query.id],
         function(err, result){
         if(err){
