@@ -104,6 +104,13 @@ function datePrint(results){
     item.appendChild(weight);
     item.appendChild(date);
     item.appendChild(lbs);
+    //createbutton
+    var button = document.createElement('button');
+    var bdata = document.createElement('td');
+    button.textContent = 'delete';
+    bdata.appendChild(button);
+    item.appendChild(bdata);
+
     table.appendChild(item);
   }
 }
