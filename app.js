@@ -162,9 +162,6 @@ app.post('/', function(req, res){
   for (var p in req.body){
     params.push({'name':p,'value':req.body[p]})
   }
-  console.log("POST");
-  console.log(req.body);
-  console.log(params);
   content.dataList = params;
   res.render('home', content);
 });

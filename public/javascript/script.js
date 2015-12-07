@@ -20,6 +20,32 @@ function dataDelete(id){
   req.send(null);
 }
 
+function dataUpdate(id, name, reps, weight, date, lbs){
+  //pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
+  if(id){
+    var req = new XMLHttpRequest();
+    var get = "/delete?id=" + id;
+    if(name)
+      get += "&name=" + name;
+    if(reps)
+      get += "&reps=" + reps;
+    if(workout)
+      get += "&weight=" + weight;
+    if(date)
+      get += "&date=" + date;
+    if(lbs)
+      get += "&lbs=" + lbs;
+
+    req.open("GET", "/delete?id=" + id, true);
+    req.addEventListener('load',function(){
+      if(req.status >= 200 && req.status < 400){
+        dataLoad();
+      }
+    });
+    req.send(null);
+  }
+}
+
 function dataLoad(){
   var req = new XMLHttpRequest();
   req.open("GET", "/getTable", true);
@@ -34,6 +60,7 @@ function dataLoad(){
 
 function datePrint(results){
   var table = document.getElementById('workouts');
+  //clear rows
   while(table.rows.length > 0) {
     table.deleteRow(0);
   }
