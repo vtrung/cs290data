@@ -105,10 +105,14 @@ function datePrint(results){
     item.appendChild(date);
     item.appendChild(lbs);
     //createbutton
-    var button = document.createElement('button');
+    var deleteb = document.createElement('button');
+    var updateb = document.createElement('button');
     var bdata = document.createElement('td');
-    button.textContent = 'delete';
-    bdata.appendChild(button);
+    updateb.textContent = 'update';
+    deleteb.textContent = 'delete';
+    deleteb.onclick = dataDelete(a.id);
+    bdata.appendChild(updateb);
+    bdata.appendChild(deleteb);
     item.appendChild(bdata);
 
     table.appendChild(item);
