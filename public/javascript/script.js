@@ -103,11 +103,7 @@ function datePrint(results){
   var date = document.createElement('th');
   date.textContent = "date";
   var lbs = document.createElement('th');
-  if(!lbs)
-    lbs.textContent = "lbs";
-  else
-    lbs.textContent = "kg";
-
+  lbs.textContent = "lbs or kg";
   item.appendChild(name);
   item.appendChild(reps);
   item.appendChild(weight);
@@ -131,7 +127,11 @@ function datePrint(results){
     var date = document.createElement('td');
     date.textContent = a.date;
     var lbs = document.createElement('td');
-    lbs.textContent = a.lbs;
+    if(lbs)
+      lbs.textContent = "kg";
+    else {
+      lbs.textContent = "lbs";
+    }
     item.appendChild(name);
     item.appendChild(reps);
     item.appendChild(weight);
