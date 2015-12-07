@@ -103,7 +103,11 @@ function datePrint(results){
   var date = document.createElement('th');
   date.textContent = "date";
   var lbs = document.createElement('th');
-  lbs.textContent = "lbs";
+  if(!lbs)
+    lbs.textContent = "lbs";
+  else
+    lbs.textContent = "kg";
+
   item.appendChild(name);
   item.appendChild(reps);
   item.appendChild(weight);
