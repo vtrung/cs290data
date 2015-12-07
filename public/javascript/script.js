@@ -58,6 +58,7 @@ var deleteButton = function(){
 }
 
 var updateButton = function(){
+  document.getElementById('update-form').style.color = "block";
   var res = this.id;
   var id = res.split("update-")[1];
   console.log("update:"+id);
