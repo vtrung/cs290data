@@ -127,11 +127,11 @@ function datePrint(results){
     var bdata = document.createElement('td');
     updateb.textContent = 'update';
     updateb.id = 'update-' + a.id;
-    updateb.onclick=function(){updateButton()};
+    updateb.onclick=updateButton;
     //updateb['onclick'] = 'dataDelete('+ a.id +')'
     deleteb.textContent = 'delete';
     deleteb.id = 'delete-' + a.id;
-    deleteb.onclick=function(){deleteButton()};
+    deleteb.onclick=deleteButton;
     bdata.appendChild(updateb);
     bdata.appendChild(deleteb);
     item.appendChild(bdata);
