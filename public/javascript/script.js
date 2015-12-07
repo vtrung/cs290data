@@ -64,6 +64,19 @@ function datePrint(results){
   while(table.rows.length > 0) {
     table.deleteRow(0);
   }
+  //build header
+  var item = document.createElement('tr');
+  var name = document.createElement('th');
+  name.textContent = "name";
+  var reps = document.createElement('th');
+  reps.textContent = "reps";
+  var weight = document.createElement('th');
+  weight.textContent = "weight";
+  var date = document.createElement('th');
+  date.textContent = "date";
+  var lbs = document.createElement('th');
+  lbs.textContent = "th";
+  table.appendChild(item);
 
   var result = JSON.parse(results);
 
