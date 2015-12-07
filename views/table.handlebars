@@ -2,8 +2,17 @@
 <p>
   {{results}}
 </p>
+<div>
+  <p>Add New Workout</p>
+  <form action="/insert" method="get">
+    Workout Name: <input name='name' type='text'><br />
+    <input type='submit'>
+  </form>
+</div>
 <table id="workouts">
 </table>
 <script>
   window.onload = dataLoad();
+  var button = document.getElementById('addnew');
+
 </script>

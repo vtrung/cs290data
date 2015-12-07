@@ -64,7 +64,7 @@ app.get('/insert',function(req,res,next){
       return;
     }
     context.results = "Inserted id " + result.insertId;
-    res.render('home',context);
+    res.render('table',context);
   });
 });
 
@@ -76,7 +76,7 @@ app.get('/delete',function(req,res,next){
       return;
     }
     context.results = "Deleted " + result.changedRows + " rows";
-    res.render('home',context);
+    res.render('table',context);
   });
 });
 

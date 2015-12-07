@@ -80,7 +80,7 @@ function datePrint(results){
   var date = document.createElement('th');
   date.textContent = "date";
   var lbs = document.createElement('th');
-  lbs.textContent = "th";
+  lbs.textContent = "lbs";
   item.appendChild(name);
   item.appendChild(reps);
   item.appendChild(weight);
@@ -94,6 +94,7 @@ function datePrint(results){
     console.log(a);
     var a = result[i];
     var item = document.createElement('tr');
+    item.id = 'row'+a.id;
     var name = document.createElement('td');
     name.textContent = a.name;
     var reps = document.createElement('td');
