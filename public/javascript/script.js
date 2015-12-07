@@ -58,12 +58,13 @@ var deleteButton = function(){
 }
 
 var updateButton = function(){
-  document.getElementById('update-form').style.color = "block";
+  document.getElementById('update-form').style.display = "block";
   var res = this.id;
   var id = res.split("update-")[1];
   console.log("update:"+id);
   var row = document.getElementById('row'+id);
   var rdata = row.getElementsByTagName('td');
+  document.getElementById('upid').value = id;
   document.getElementById('upname').value = rdata[0].textContent;
   document.getElementById('upreps').value = rdata[1].textContent;
   document.getElementById('upweight').value = rdata[2].textContent;
